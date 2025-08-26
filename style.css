@@ -1,0 +1,306 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    gap: 5px;
+}
+
+.left {
+    border-radius: 9px;
+    width: 30vw;
+    background-color: rgb(6, 1, 25);
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    opacity: .9;
+}
+
+.tittle>h2 {
+    background-color: rgb(100, 170, 207);
+    margin: 15px;
+    margin-top: 15px;
+    padding: 5px;
+    text-align: center;
+    color: rgb(12, 12, 92);
+    border-radius: 23px;
+
+}
+
+.quote {
+    background-color: rgb(171, 217, 236);
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+    color: rgb(7, 7, 147);
+    border-radius: 23px;
+
+}
+
+.quote>button {
+    background-color: rgb(5, 7, 98);
+    border: none;
+    border: 2px solid rgb(124, 147, 221);
+    border-radius: 9px;
+    font-size: larger;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: rgb(186, 201, 211);
+    height: 49px;
+    cursor: pointer;
+}
+
+.right {
+    width: 70vw;
+    background-color: rgb(3, 3, 54);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    opacity: .9;
+}
+
+.footer {
+    margin: 15px;
+    width: 95%;
+    background-color: rgb(103, 200, 227);
+    /* width: 100%; */
+    border-radius: 8px;
+    height: 56px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+}
+
+a {
+    background-color: azure;
+    /* position: absolute; */
+    text-decoration: dotted;
+    padding: 6px;
+    margin: 10px;
+    text-transform: capitalize;
+    font-size: larger;
+    font-weight: 700;
+    border-radius: 12px;
+    text-align: center;
+    /* bottom: 0px; */
+}
+
+input {
+    height: 17px;
+    width: 70%;
+    padding: 10px;
+    margin: 15px;
+}
+
+#taskList input[type="checkbox"] {
+    width: 16px;
+    height: 26px;
+    margin: 5px;
+    transform: scale(0.8);
+    /* makes checkbox smaller visually */
+    accent-color: #4c26be;
+    /* optional: makes checkbox match theme */
+    cursor: pointer;
+    margin-right: 8px;
+
+}
+
+#taskList li {
+    display: flex;
+    align-items: center;
+    font-size: 35px;
+    background-color: rgb(126, 214, 214);
+    margin: 5px;
+    margin-right: 1px;
+}
+
+
+.timer {
+    width: 22vw;
+    height: 29vh;
+    background-color: rgb(171, 217, 236);
+    padding: 5px;
+    margin: 8px;
+    text-align: center;
+    color: rgb(7, 7, 147);
+    text-transform: uppercase;
+    font-size: larger;
+    font-weight: 700;
+    border-radius: 23px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+#watch {
+    width: 100px;
+    height: 100px;
+    background-color: #1e1e1e;
+    color: #00ffcc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 4px solid #00ffcc;
+}
+
+.sw {
+    width: 50%;
+    text-align: center;
+}
+
+#stopwatch {
+    font-size: 16px;
+    background-color: aliceblue;
+    text-decoration: none;
+    width: 50%;
+    margin: 15px;
+    margin-left: 45px;
+}
+
+.controls button {
+    padding: 5px 10px;
+    margin: 2px;
+    border: none;
+    border-radius: 6px;
+    background-color: #13064b;
+    color: rgb(210, 207, 218);
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.controls button:hover {
+    background-color: #00ddb3;
+}
+
+.two {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+/* Make calendar background match theme */
+#calender {
+  background-color: rgb(171, 217, 236);
+  padding: 10px;
+  border-radius: 16px;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* FullCalendar overrides */
+.fc {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
+}
+
+.fc-toolbar-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(7, 7, 147);
+}
+
+.fc-button {
+  background-color: #00cc99;
+  border: none;
+  padding: 6px 10px;
+  margin: 2px;
+  font-weight: 600;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.fc-button:hover {
+  background-color: #00b68f;
+}
+
+.fc-daygrid-day-number {
+  color: #004e5a;
+  font-weight: bold;
+}
+
+.fc-daygrid-day {
+  transition: background-color 0.2s ease;
+}
+
+.fc-daygrid-day:hover {
+  background-color: rgba(0, 255, 200, 0.1);
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.fc-col-header-cell-cushion {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Adjust calendar height inside your box */
+#calender .fc-view-harness {
+  min-height: 200px;
+  max-height: 400px;
+  overflow: auto;
+}
+/* Make today's cell dark blue with white text */
+.fc-day-today {
+  background-color: #0b1c5d !important;  /* Dark blue background */
+  color: black !important;               /* ✅ Black text */
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.fc-day-today .fc-daygrid-day-number {
+  color: black !important;              /* ✅ Black date number */
+}
+
+
+
+.graph {
+    height: 52vh;
+    background-color: rgb(171, 217, 236);
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+    color: rgb(7, 7, 147);
+    text-transform: uppercase;
+    font-size: larger;
+    font-weight: 700;
+    border-radius: 23px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 35px;
+
+}
+canvas{
+    margin: 5px;
+}
+.grtext{
+    margin-bottom: 25px;
+    text-decoration: none;
+}
+
+.motivate {
+    height: 13vh;
+    background-color: rgb(171, 217, 236);
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+    color: rgb(7, 7, 147);
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 700;
+    border-radius: 23px;
+}

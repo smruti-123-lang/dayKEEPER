@@ -2,81 +2,83 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DayKEEPER</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DayKEEPER</title>
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="style.css" />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
 
-    <!-- FollCalendar CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
-
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="container">
-        <div class="left">
-            <div class="tittle">
-                <h2>WELCOME TO BUILD YOU YOURSELF</h2>
-            </div>
-            <div class="quote">
-                <h3>QUOTE OF THE DAY</h3>
-                <button id="quote">Get Quote...</button>
-                <p id="display"></p>
-            </div>
-            <div class="input">
-                <input type="text" id="taskInput" placeholder="Add a task..." />
-                <button onclick="addTask()">Add</button>
-                <button onclick="clearAllTasks()">Clear All</button>
+  <div class="container">
+    <div class="left">
+      <div class="tittle">
+        <h2>WELCOME TO BUILD YOU YOURSELF</h2>
+      </div>
 
-            </div>
+      <!-- Quotes -->
+      <div class="quote">
+        <h3>QUOTE OF THE DAY</h3>
+        <button id="quote">Get Quote...</button>
+        <p id="display"></p>
+      </div>
 
-            <ol id="taskList"></ol>
-
-        </div>
-
-        <div class="right">
-            <div class="one">
-                <div class="timer">
-                    <div id="watch">19:06:20 </div>
-                    <div class="sw">
-                        <div id="stopwatch">00:00:00</div>
-
-
-                        <div class="controls">
-                            <button onclick="startStopwatch()">Start</button>
-                            <button onclick="stopStopwatch()">Stop</button>
-                            <button onclick="resetStopwatch()">Reset</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="graph">
-                    <div class="grtext">your progress</div>
-                    <canvas id="myChart" height="200"></canvas>
-                </div>
-
-            </div>
-            <div class="two">
-                <div id="calender"></div>
-                <div class="motivate">it's your day... kill it... be the lion you are...</div>
-            </div>
-            <div class="footer">
-                <a href="https://www.google.com">have doubt?</a>
-                <a href="https://www.youtube.com">see lecture</a>
-                <a href="https://chat.openai.com">use ChatGPT</a>
-            </div>
-        </div>
+      <!-- Task List -->
+      <div class="input">
+        <input type="text" id="taskInput" placeholder="Add a task..." />
+        <button onclick="addTask()">Add</button>
+        <button onclick="clearAllTasks()">Clear All</button>
+      </div>
+      <ol id="taskList"></ol>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- FollCalendar JS (must come first) -->
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <div class="right">
+      <div class="one">
+        <!-- Timer & Stopwatch -->
+        <div class="timer">
+          <div id="watch">00:00:00</div>
+          <div class="sw">
+            <div id="stopwatch">00:00:00</div>
+            <div class="controls">
+              <button onclick="startStopwatch()">Start</button>
+              <button onclick="stopStopwatch()">Stop</button>
+              <button onclick="resetStopwatch()">Reset</button>
+            </div>
+          </div>
+        </div>
 
+        <!-- Chart -->
+        <div class="graph">
+          <div class="grtext">Your Progress</div>
+          <canvas id="myChart" height="200"></canvas>
+        </div>
+      </div>
 
-    <!-- Your custom JS -->
-    <script src="script.js"></script>
+      <!-- Calendar -->
+      <div class="two">
+        <div id="calender"></div>
+        <div class="motivate">It's your day... kill it... be the lion you are...</div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <a href="https://www.google.com">Have doubt?</a>
+        <a href="https://www.youtube.com">See lecture</a>
+        <a href="https://chat.openai.com">Use ChatGPT</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+  <!-- Your custom JS -->
+  <script src="script.js"></script>
 </body>
 
 </html>

@@ -1,14 +1,20 @@
-// QUOTE SECTION
-const quote = document.getElementById("quote");
-
-quote.addEventListener("click", getquote);
+// ===== QUOTES =====
+const quoteBtn = document.getElementById("quote");
+quoteBtn.addEventListener("click", getquote);
 
 function getquote() {
-  fetch("quote.json")
+  fetch("https://api.api-ninjas.com/v1/quotes?", {
+    headers: { "X-Api-Key": "An74HdfMxiGCitLZLbO40A==QCfDNprw1NL8txdB" }
+  })
     .then((res) => res.json())
     .then((data) => {
-      const random = data[Math.floor(Math.random() * data.length)];
-      document.getElementById("display").innerText = `"${random.content}" – ${random.author}`;
+      if (data && data.length > 0) {
+        const random = data[Math.floor(Math.random() * data.length)];
+        document.getElementById("display").innerText =
+          `"${random.quote}" – ${random.author}`;
+      } else {
+        document.getElementById("display").innerText = "No quotes found.";
+      }
     })
     .catch((err) => {
       document.getElementById("display").innerText = "Could not fetch quote.";
@@ -16,20 +22,19 @@ function getquote() {
     });
 }
 
-// CALENDAR SECTION
+// ===== CALENDAR =====
 document.addEventListener("DOMContentLoaded", function () {
   const calendarEl = document.getElementById("calender");
-
-  const calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: "dayGridMonth",
-     height: 420,
-  });
-
-  calendar.render();
+  if (calendarEl) {
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: "dayGridMonth",
+      height: 420,
+    });
+    calendar.render();
+  }
 });
 
-
-//timer section
+// ===== TIMER (Clock) =====
 function updateTime() {
   const now = new Date();
   let h = String(now.getHours()).padStart(2, '0');
@@ -37,13 +42,10 @@ function updateTime() {
   let s = String(now.getSeconds()).padStart(2, '0');
   document.getElementById('watch').innerText = `${h}:${m}:${s}`;
 }
-
 setInterval(updateTime, 1000);
-updateTime(); // initial run
+updateTime();
 
-
-// stopwatch....
-
+// ===== STOPWATCH =====
 let stopwatchInterval;
 let ms = 0, sec = 0, min = 0;
 
@@ -62,7 +64,7 @@ function startStopwatch() {
 
       document.getElementById("stopwatch").innerText =
         `${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}:${String(ms).padStart(2, '0')}`;
-    }, 10); // 10 milliseconds
+    }, 10);
   }
 }
 
@@ -80,13 +82,13 @@ function resetStopwatch() {
   document.getElementById("stopwatch").innerText = "00:00:00";
 }
 
-// GRAPH
+// ===== TASKS + CHART =====
 const taskInput = document.getElementById("taskInput");
 const taskList = document.getElementById("taskList");
 
 let tasks = [];
 
-// ✅ Initialize the Chart
+// Chart init
 const ctx = document.getElementById("myChart");
 const myChart = new Chart(ctx, {
   type: "bar",
@@ -115,7 +117,7 @@ const myChart = new Chart(ctx, {
   }
 });
 
-// ✅ Add Task and Update
+// Add task
 function addTask() {
   const taskText = taskInput.value.trim();
   if (taskText === "") return;
@@ -129,7 +131,7 @@ function addTask() {
   updateChart();
 }
 
-// ✅ Create Task Element (with checkbox)
+// Create task item
 function createTaskElement(text, isChecked) {
   const taskItem = document.createElement("li");
 
@@ -151,6 +153,8 @@ function createTaskElement(text, isChecked) {
 
   return taskItem;
 }
+
+// Clear tasks
 function clearAllTasks() {
   tasks = [];
   taskList.innerHTML = "";
@@ -158,12 +162,11 @@ function clearAllTasks() {
   updateChart();
 }
 
-// ✅ Save to localStorage
+// Save/load tasks
 function saveTasksToLocalStorage() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// ✅ Load on Page Load
 function loadTasksFromLocalStorage() {
   const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks = savedTasks;
@@ -178,7 +181,7 @@ function loadTasksFromLocalStorage() {
   updateChart();
 }
 
-// ✅ Update Graph
+// Update chart
 function updateChart() {
   const goal = tasks.length;
   if (goal === 0) {
@@ -197,5 +200,5 @@ function updateChart() {
   myChart.update();
 }
 
-// ✅ Load tasks on page load
+// Load tasks on page load
 document.addEventListener("DOMContentLoaded", loadTasksFromLocalStorage);

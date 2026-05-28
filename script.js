@@ -22,6 +22,7 @@ function getquote() {
     });
 }
 
+
 // ===== CALENDAR =====
 document.addEventListener("DOMContentLoaded", function () {
   const calendarEl = document.getElementById("calender");

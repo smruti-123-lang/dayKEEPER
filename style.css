@@ -251,7 +251,7 @@ input {
 
 .fc-day-today {
   background-color: #7c6acb !important;
-  color: white !important;
+  color: rgb(21, 8, 8) !important;
   border-radius: 8px;
   font-weight: bold;
 }
